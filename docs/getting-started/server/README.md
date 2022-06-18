@@ -36,7 +36,7 @@ npm run start
 
 To start the server for Development just run
 
-```
+```bash
 npm run dev
 ```
 
