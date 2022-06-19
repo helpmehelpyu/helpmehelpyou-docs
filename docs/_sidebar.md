@@ -3,3 +3,4 @@
     -   [Server Setup](/getting-started/server/)
     -   [Client Setup](/getting-started/client/)
 -   [API](/api/)
+-   [Models](/models/)

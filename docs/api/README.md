@@ -25,7 +25,7 @@ GET /media/{mediaId}
 #### **<span style='color: green; font-weight: bold'> 200 </span>**
 
 Media was successfuly found and returned.
-Returns a `application/json` Media object
+Returns a `application/json` Media object with some fields truncated.
 
 ```json
 {
