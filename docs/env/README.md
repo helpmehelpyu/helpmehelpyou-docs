@@ -1,5 +1,9 @@
 # Environment Variables
 
+Setup instructions and documentation for .env file.
+
+**THE `.env` FILE GOES IN THE `/server/config` FOLDER**
+
 ## List of Environment Variables
 
 | Name                  | Description                                       |
