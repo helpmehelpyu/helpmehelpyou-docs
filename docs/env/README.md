@@ -18,6 +18,7 @@ Setup instructions and documentation for .env file.
 PORT=3000
 
 # database
+POSTGRES_PASSWORD=password
 DATABASE_URL=postgresql://postgres:password@db:5432/postgres
 ```
 

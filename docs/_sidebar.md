@@ -2,6 +2,7 @@
 -   Getting Started
     -   [Server Setup](/getting-started/server/)
     -   [Client Setup](/getting-started/client/)
+    -   [Database Setup](/getting-started/database/)
 -   [Models](/models/)
 -   [Environment Variables](/env/)
 -   [API](/api/)
