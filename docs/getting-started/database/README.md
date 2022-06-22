@@ -1,6 +1,6 @@
 # Database Setup
 
-# Creating the local database
+## Creating the local database
 
 If you already created a database omit this step.
 
@@ -32,7 +32,7 @@ This will run all migrations and set up the database.
 
 Make sure that you are connected to the database.
 
-# Generating Migrations
+## Generating Migrations
 
 A migration is effectivly a database commit. When you run the migration you run the change on the database (i.e alter a table). When you revert the migration you revert the change. With [Typeorm](https://typeorm.io/migrations) we can generate migrations whenever we change the database which is pretty sweet. Then another user with the old database can simply run (the command above) the migration to synchronize their database.
 
@@ -48,7 +48,7 @@ This will generate a migration named `NAME_OF_MIGRATION` concatenated with a tim
 
 _BAM_ You have now generated a super cool database migration!.
 
-# Running Migrations
+## Running Migrations
 
 Is the same process as initially setting up the database. Just navigate to the server folder (not in docker container) and run
 
