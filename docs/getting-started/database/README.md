@@ -41,7 +41,7 @@ First, connect to the docker container which is running the server (I have no cl
 Then run
 
 ```bash
-npm run typeorm migration:generate -- ./database/migrations/<NAME_OF_MIGRATION> -d ./database/dataSource.ts
+npm run typeorm migration:generate -- ./database/migrations/<NAME_OF_MIGRATION> -d ./database/DataSource.ts
 ```
 
 This will generate a migration named `NAME_OF_MIGRATION` concatenated with a timestamp in the `server/database/migrations` folder.
@@ -53,5 +53,5 @@ _BAM_ You have now generated a super cool database migration!.
 Is the same process as initially setting up the database. Just navigate to the server folder (not in docker container) and run
 
 ```bash
-npm run typeorm migration:run -- -d ./database/dataSource.ts
+npm run typeorm migration:run -- -d ./database/DataSource.ts
 ```
