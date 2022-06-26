@@ -120,10 +120,14 @@ Unsupported file format or data.
 
 ```json
 {
+	fileError: {
+		type: string,
+		message: string,
+	}
 	errors: [
 		{
-			type: String,
-			message: String,
+			type: string,
+			message: string,
 		}
 	]
 }
@@ -248,5 +252,100 @@ Media with this `mediaID` could not be found.
 | ------- | -------- | ------------------------------ |
 | type    | `String` | The type of Error that occured |
 | message | `String` | The Error message              |
+
+<!-- tabs:end -->
+
+## User
+
+### Register a New User
+
+Register a new User with the given data.
+
+```
+POST /users/signup
+```
+
+#### <span style='font-size: 1.2em'> Request </span>
+
+**Request Body**
+
+| Name        | Type     | Description                   | Required                    |
+| ----------- | -------- | ----------------------------- | --------------------------- |
+| firstName   | `String` | The first name of the User    | Yes                         |
+| lastName    | `String` | The last name of the User     | Yes                         |
+| email       | `String` | The email address of the User | Yes                         |
+| password    | `String` | The User's password           | Yes                         |
+| phoneNumber | `String` | The phone number of the User  | No (empty string when null) |
+
+#### <span style='font-size: 1.2em'> Response </span>
+
+<!-- tabs:start -->
+
+#### **<span style='color: green;font-weight: bold'> 201 </span>**
+
+A new User with the specified data has successfully been created.
+
+```json
+{
+	userId: String (is uuid)
+}
+```
+
+#### **<span style='color: red;font-weight: bold'> 400 </span>**
+
+A new User could not be created with the given data. Invalid data entered.
+
+```json
+{
+	errors: [
+		{
+			type: String,
+			message: String,
+			value?: String,
+			location?: String,
+		}
+	]
+}
+```
+
+<!-- tabs:end -->
+
+### Login an Existing User
+
+Log in a User with their email and password.
+
+#### <span style='font-size: 1.2em'> Request </span>
+
+#### Request Body
+
+| Name     | Type     | Description                   | Required |
+| -------- | -------- | ----------------------------- | -------- |
+| email    | `String` | The email address of the User | Yes      |
+| password | `String` | The User's password           | Yes      |
+
+#### <span style='font-size: 1.2em'> Response </span>
+
+<!-- tabs:start -->
+
+#### **<span style='color: green;font-weight: bold'> 201 </span>**
+
+On successful login, return the authentication token for the user.
+
+```json
+{
+	authToken: String
+}
+```
+
+#### **<span style='color: red;font-weight: bold'> 403 </span>**
+
+Incorrect email or password entered.
+
+```json
+{
+    "type": "InvalidLoginInformationError",
+    "message": "Invalid email or password"
+}
+```
 
 <!-- tabs:end -->
