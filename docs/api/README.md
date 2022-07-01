@@ -424,12 +424,12 @@ Invalid user input.
 }
 ```
 
-| Name        | Type     | Description                               | Required |
-| ----------- | -------- | ----------------------------------------- | -------- |
-| type        | `String` | The name of the error                     | Yes      |
-| lastName    | `String` | The error message                         | Yes      |
-| value       | `String` | The invalid input value                   | No       |
-| phoneNumber | `String` | The location where the value was inputted | No       |
+| Name     | Type     | Description                               | Required |
+| -------- | -------- | ----------------------------------------- | -------- |
+| type     | `String` | The name of the error                     | Yes      |
+| lastName | `String` | The error message                         | Yes      |
+| value    | `String` | The invalid input value                   | No       |
+| location | `String` | The location where the value was inputted | No       |
 
 <!-- tabs:end -->
 
@@ -447,7 +447,7 @@ Delete an existing user.
 | ------ | -------- | -------------------------------- |
 | userId | `String` | The id of the user to be deleted |
 
-#### <span style='font-size: 1.2em'> Request </span>
+#### <span style='font-size: 1.2em'> Response </span>
 
 <!-- tabs:start -->
 
@@ -472,5 +472,207 @@ User could not be deleted.
 | Name    | Type     | Description       |
 | ------- | -------- | ----------------- |
 | message | `String` | The error message |
+
+<!-- tabs:end -->
+
+## Links
+
+### Create a New Link
+
+Create a new Link with the given name and url
+
+```
+POST /links
+```
+
+#### <span style='font-size: 1.2em'> Request </span>
+
+**Authentication Bearer**
+
+**Request Body**
+
+| Name | Type     | Description          |
+| ---- | -------- | -------------------- |
+| name | `String` | The name of the link |
+| url  | `String` | The url of the link  |
+
+All fields are required
+
+#### <span style='font-size: 1.2em'> Response </span>
+
+<!-- tabs:start -->
+
+#### **<span style='color: green;font-weight: bold'> 201 </span>**
+
+Link was successfully created
+
+```json
+{
+	id: number,
+	owner: {
+		id: String,
+		firstName: String,
+		lastName: String,
+	}
+	name: String,
+	url: String
+}
+```
+
+| Name            | Type     | Description                            |
+| --------------- | -------- | -------------------------------------- |
+| id              | `String` | The id of the link                     |
+| owner           | `String` | The owner of the link                  |
+| owner.id        | `String` | The id of the owner of the link        |
+| owner.firstName | `String` | The firstName of the owner of the link |
+| owner.lastName  | `String` | The lastName of the owner of the link  |
+| name            | `String` | The name of the link                   |
+| url             | `String` | The url of the link                    |
+
+#### **<span style='color: red;font-weight: bold'> 400 </span>**
+
+Invalid User input.
+
+```json
+{
+	errors: [
+		{
+			type: String,
+			msg: String,
+			value: String,
+			location: String,
+		}
+	]
+}
+```
+
+| Name     | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| type     | `String` | The name of the error                     |
+| lastName | `String` | The error message                         |
+| value    | `String` | The invalid input value                   |
+| location | `String` | The location where the value was inputted |
+
+<!-- tabs:end -->
+
+### Update an Exist Link
+
+Update an existing Link with the associated LinkId
+
+```
+PUT /links/:linkId
+```
+
+#### <span style='font-size: 1.2em'> Request </span>
+
+**Authentication Bearer**
+
+**Path Parameters**
+
+| Name   | Type     | Description        |
+| ------ | -------- | ------------------ |
+| linkId | `String` | The id of the Link |
+
+#### Request Body
+
+| Name | Type     | Description              |
+| ---- | -------- | ------------------------ |
+| name | `String` | The new name of the Link |
+| url  | `String` | The new url of the Link  |
+
+#### <span style='font-size: 1.2em'> Response </span>
+
+<!-- tabs:start -->
+
+#### **<span style='color: green;font-weight: bold'> 200 </span>**
+
+The Link was successfully updated
+
+```json
+{
+	id: number,
+	owner: {
+		id: String,
+		firstName: String,
+		lastName: String,
+	}
+	name: String,
+	url: String
+}
+```
+
+| Name            | Type     | Description                            |
+| --------------- | -------- | -------------------------------------- |
+| id              | `String` | The id of the link                     |
+| owner           | `String` | The owner of the link                  |
+| owner.id        | `String` | The id of the owner of the link        |
+| owner.firstName | `String` | The firstName of the owner of the link |
+| owner.lastName  | `String` | The lastName of the owner of the link  |
+| name            | `String` | The name of the link                   |
+| url             | `String` | The url of the link                    |
+
+#### **<span style='color: red;font-weight: bold'> 400 </span>**
+
+Invalid User input.
+
+```json
+{
+	errors: [
+		{
+			type: String,
+			msg: String,
+			value: String,
+			location: String,
+		}
+	]
+}
+```
+
+| Name     | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| type     | `String` | The name of the error                     |
+| lastName | `String` | The error message                         |
+| value    | `String` | The invalid input value                   |
+| location | `String` | The location where the value was inputted |
+
+<!-- tabs:end -->
+
+### Delete Existing Link
+
+```
+DELETE /links/:linkId
+```
+
+#### <span style='font-size: 1.2em'> Request </span>
+
+**Authentication Bearer**
+
+**Path Parameters**
+
+| Name   | Type     | Description        |
+| ------ | -------- | ------------------ |
+| linkId | `String` | The id of the Link |
+
+#### <span style='font-size: 1.2em'> Response </span>
+
+<!-- tabs:start -->
+
+#### **<span style='color: green;font-weight: bold'> 200 </span>**
+
+Link was successfully deleted.
+
+```
+OK
+```
+
+#### **<span style='color: red;font-weight: bold'> 500 </span>**
+
+Link could not be deleted
+
+```json
+{
+    "message": "unabled to delete the requested resource"
+}
+```
 
 <!-- tabs:end -->
