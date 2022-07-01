@@ -343,8 +343,8 @@ Incorrect email or password entered.
 
 ```json
 {
-    "type": "InvalidLoginInformationError",
-    "message": "Invalid email or password"
+  "type": "InvalidLoginInformationError",
+  "message": "Invalid email or password"
 }
 ```
 
@@ -465,7 +465,7 @@ User could not be deleted.
 
 ```json
 {
-    "message": "Unable to delete the requested resource"
+  "message": "Unable to delete the requested resource"
 }
 ```
 
@@ -671,7 +671,7 @@ Link could not be deleted
 
 ```json
 {
-    "message": "unabled to delete the requested resource"
+  "message": "unabled to delete the requested resource"
 }
 ```
 

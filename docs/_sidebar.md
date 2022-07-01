@@ -6,3 +6,5 @@
 -   [Models](/models/)
 -   [Environment Variables](/env/)
 -   [API](/api/)
+-   Planning
+    -   [Website UI Design](/planning/client/)
