@@ -327,7 +327,7 @@ Log in a User with their email and password.
 
 <!-- tabs:start -->
 
-#### **<span style='color: green;font-weight: bold'> 201 </span>**
+#### **<span style='color: green;font-weight: bold'> 200 </span>**
 
 On successful login, return the authentication token for the user.
 
