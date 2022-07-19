@@ -82,7 +82,7 @@ POST /media
 
 #### <span style='font-size: 1.2em'> Request </span>
 
-**Authorization: Bearer**
+**Auth Cookie required**
 
 Content-Type: `multipart/form-data`
 
@@ -145,7 +145,7 @@ PATCH /media/{mediaId}
 
 #### <span style='font-size: 1.2em'> Request </span>
 
-**Authorization: Bearer**
+**Auth Cookie required**
 
 **Path Parameters**
 
@@ -221,7 +221,7 @@ DELETE /media/{mediaId}
 
 #### <span style='font-size: 1.2em'> Request </span>
 
-**Authorization: Bearer**
+**Auth Cookie required**
 
 **Path Parameters**
 
@@ -285,11 +285,7 @@ POST /users/signup
 
 A new User with the specified data has successfully been created.
 
-```json
-{
-	userId: String (is uuid)
-}
-```
+No response, only status 201 sent back.
 
 #### **<span style='color: red;font-weight: bold'> 400 </span>**
 
@@ -313,6 +309,10 @@ A new User could not be created with the given data. Invalid data entered.
 ### Login an Existing User
 
 Log in a User with their email and password.
+
+```
+POST /users
+```
 
 #### <span style='font-size: 1.2em'> Request </span>
 
@@ -355,18 +355,12 @@ Incorrect email or password entered.
 Edit the details of an existing user
 
 ```
-POST /users/:userId
+POST /users
 ```
 
 #### <span style='font-size: 1.2em'> Request </span>
 
-**Authorization: Bearer**
-
-**Path Parameters**
-
-| Name   | Type     | Description                     |
-| ------ | -------- | ------------------------------- |
-| userId | `String` | The id of the user to be edited |
+**Auth Cookie required**
 
 #### Request Body
 
@@ -439,13 +433,7 @@ Delete an existing user.
 
 #### <span style='font-size: 1.2em'> Request </span>
 
-**Authorization: Bearer**
-
-**Path Parameters**
-
-| Name   | Type     | Description                      |
-| ------ | -------- | -------------------------------- |
-| userId | `String` | The id of the user to be deleted |
+**Auth Cookie required**
 
 #### <span style='font-size: 1.2em'> Response </span>
 
